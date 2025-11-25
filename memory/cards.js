@@ -101,13 +101,13 @@ function hideCards() {
   for(let r = 0; r < rows; r++) {
     for(let c = 0; c < columns; c++){
       let card = document.getElementById(r.toString() + "-" + c.toString());
-      card.src = "memory/back.jpg";
+      card.src = "memory/cards/back.jpg";
     }
   }
 }
 
 function selectCard() {
-  if(this.src.includes("memory/back")) {
+  if(this.src.includes("memory/cards/back")) {
     if(!card1Selected) {
       card1Selected = this;
 
@@ -132,14 +132,14 @@ function selectCard() {
 
 function update () {
   if(card1Selected.src != card2Selected.src) {
-    card1Selected.src = "memory/back.jpg";
-    card2Selected.src = "memory/back.jpg";
+    card1Selected.src = "memory/cards/back.jpg";
+    card2Selected.src = "memory/cards/back.jpg";
     errors += 1;
     document.getElementById("errors").innerText = errors;
   }
 
   let allCards = document.querySelectorAll(".card");
-  let allFlipped = Array.from(allCards).every(card => !card.src.includes("memory/back"));
+  let allFlipped = Array.from(allCards).every(card => !card.src.includes("memory/cards/back"));
   
   if (allFlipped) {
     updateBestScore();
